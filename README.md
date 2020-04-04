@@ -48,10 +48,14 @@ print("Environment Variable set properly : ",acess_token is not None)
     - `python automate.py repo_name --ssh`
 - To create a **private** repo and add remote origin via **SSH** 
     - `python automate.py repo_name --ssh --private`
- - To create local folder at specified location
+- To create local folder at specified location
     - `python automate.py repo_name --dir "complete/path/to/folder"`
-
-
+- To authenticate via basic username and password instead of __*PERSONAL_ACESS_TOKEN*__ :
+    - `python automate.py repo_name --oauth` (**Warning** can be deprecated anytime , Not Preferred)
+- To Know More
+    - `python automate.py --help`
+    
+    
 #### Pyinstaller
 
 **To create exec file** 
@@ -61,3 +65,11 @@ print("Environment Variable set properly : ",acess_token is not None)
 > `pyinstaller --onefile automate.py`
 
 This creates a exec `./dist/automate`
+
+Now you can execute without having python installed :
+(Note : You should set the personal acess token as environment variables )
+
+> `automate repo_name`
+
+To Know more : `automate -h`or `automate --help`
+
