@@ -11,6 +11,10 @@
 - Add remote origin 
 - Push the Inital commit to the Github repo
 
+### Contents 
+- `automate.py` (Python Script)
+- `dist/automate` (Execeutable)
+
 ### Requirements :
 
 - Create **Github Personal Acess Token** from [here](https://github.com/settings/tokens) .Read [this](https://help.github.com/en/github/authenticating-to-github/creating-a-personal-access-token-for-the-command-line) for reference.
@@ -67,9 +71,14 @@ print("Environment Variable set properly : ",acess_token is not None)
 This creates a exec `./dist/automate`
 
 Now you can execute without having python installed :
+
 (Note : You should set the personal acess token as environment variables )
 
 > `automate repo_name`
 
 To Know more : `automate -h`or `automate --help`
+
+( Tip : Set the path to dist/automate in your environment variable and run the executable from anywhere)
+
+
 
