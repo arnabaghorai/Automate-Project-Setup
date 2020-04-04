@@ -29,20 +29,35 @@ import os
 acess_token = os.environ.get("GIT_ACESS_TOKEN",None) 
 
 print("Environment Variable set properly : ",acess_token is not None)
-### >>> Environment Variable set properly : True ###Should be True
+### >>> Environment Variable set properly : True    # Should be True
 ```
 
 ### Dependencies
-> pip install -r requirements.txt
+> `pip install -r requirements.txt`
 
 ### How to run
+- Defaults:
+    - Creates **public** repo
+    - Creates local folder in the current directory "."
+    - Add remote origin via **HTTP**.
+    - `python automate.py repo_name`
+    
+- To create a **private** repo via HTTP:
+    - `python automate.py repo_name --private`
+- To add remote origin via **SSH** (default : HTTP) 
+    - `python automate.py repo_name --ssh`
+- To create a **private** repo and add remote origin via **SSH** 
+    - `python automate.py repo_name --ssh --private`
+ - To create local folder at specified location
+    - `python automate.py repo_name --dir "complete/path/to/folder"`
+
 
 #### Pyinstaller
 
 **To create exec file** 
 
-> pip install --upgrade 'setuptools<45.0.0'
+> `pip install --upgrade 'setuptools<45.0.0'`
 
-> pyinstaller --onefile automate.py
+> `pyinstaller --onefile automate.py`
 
 This creates a exec `./dist/automate`
