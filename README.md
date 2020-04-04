@@ -72,7 +72,7 @@ This creates a exec `./dist/automate`
 
 Now you can execute without having python installed :
 
-(Note : You should set the personal acess token as environment variables )
+(Note : You should set the personal acess token as environment variable )
 
 > `automate repo_name`
 
