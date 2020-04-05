@@ -240,7 +240,7 @@ parser.add_argument('--private', action='store_true',
 
 parser.add_argument('--readme', action='store_true',
                                  default=False,
-                                help='Add custom README.md')
+                                help='Init custom README.md')
 
 parser.add_argument('--oauth', action='store_true',
                                  default=False,
