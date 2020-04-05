@@ -145,7 +145,7 @@ def makeProj(parent_dir , repo):
         print(e)
     return False
 
-def initGit(ssh_url,http_url,ssh,repo):
+def initGit(ssh_url,http_url,ssh,repo,readme):
 
     """
         desc: Initialise git , 
@@ -162,8 +162,18 @@ def initGit(ssh_url,http_url,ssh,repo):
     print()
     p1 = subprocess.run(['git init'] , shell=True)
 
+
     with open("README.md","w+") as f:
         f.write(f"### {repo}")
+
+    if(readme):
+        print()
+        print("Custom README.md Initialization")
+        r = str(input("Enter: "))
+
+        with open("README.md","a+") as f:
+            f.write(f"\n {r}")
+
 
     subprocess.run(['git' ,'add', 'README.md'])
     subprocess.run(['git commit -m "init"'],shell=True)
@@ -181,19 +191,56 @@ def initGit(ssh_url,http_url,ssh,repo):
 
     # git remote add origin git@github.com:arnabaghorai/New-Repo.git
 
+def createBranch(branchName):
 
+    """
+
+        desc : Initialize a branch at local git and pushes the same.
+        params:
+            branchName : BranchName
+
+    """
+
+    if(branchName is not None and branchName!=""):
+
+
+        try:
+            cmd = f"git checkout -b {branchName}"
+            subprocess.run(cmd,shell=True)
+
+            with open("README.md","a+") as f:
+                f.write(f"\n#### Branch : {branchName}")
+
+            subprocess.run(['git' ,'add', 'README.md'])
+            subprocess.run(['git commit -m "branch init"'],shell=True)
+
+            cmd = f"git push -u origin {branchName}"
+            subprocess.run(cmd,shell=True)
+        except Exception as e:
+            print("Error: Cannot create Branch")
+            print(e)
+            print()
+    else:
+        print("Enter valid branch name")
+        
 
 
 
 parser = argparse.ArgumentParser(description='Automate Project Setup\n> Creates new repository in Github.\n> Makes a folder in the current directory\n> git init and add README.md in local setup\n> Add remote origin')
 parser.add_argument('repo', type=str,help='Github repo Name')
 parser.add_argument('-d','--dir', type=str, default=".",help='Path where local folder is created, default : (Current Folder) ')
-parser.add_argument('--ssh', action='store_true',
+parser.add_argument('-b','--branch', type=str, default=None,help='Name of Branch')
+
+parser.add_argument('-s','--ssh', action='store_true',
                                  default=False,
                                 help='add new repo through cli via SSH')
 parser.add_argument('--private', action='store_true',
                                  default=False,
                                 help='Initialise Private Repo')
+
+parser.add_argument('--readme', action='store_true',
+                                 default=False,
+                                help='Add custom README.md')
 
 parser.add_argument('--oauth', action='store_true',
                                  default=False,
@@ -214,8 +261,10 @@ def main():
     user = None
     passwrd = None
     oauth = args.oauth
+    branch = args.branch
 
     repo = args.repo
+    readme = args.readme
     parent_dir = args.dir
     ssh = args.ssh
     private = args.private
@@ -245,7 +294,13 @@ def main():
     if(flag):
 
         if(makeProj(parent_dir,repo)):
-            initGit(ssh_url,http_url,ssh,repo)
+
+            
+            initGit(ssh_url,http_url,ssh,repo,readme)
+        
+            if(branch is not None):
+                createBranch(branch)
+
     print()
 
 
