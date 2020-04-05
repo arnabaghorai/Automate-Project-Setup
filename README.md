@@ -17,7 +17,11 @@
 
 ### Requirements :
 
-- Create **Github Personal Acess Token** from [here](https://github.com/settings/tokens) .Read [this](https://help.github.com/en/github/authenticating-to-github/creating-a-personal-access-token-for-the-command-line) for reference.
+- Create **Github Personal Acess Token** from [here](https://github.com/settings/tokens).
+
+    Read [this](https://help.github.com/en/github/authenticating-to-github/creating-a-personal-access-token-for-the-command-line) for reference.
+
+    Set the scope of token such that it can create and read repos.
 - Set environment variables `GIT_ACESS_TOKEN="Personal_Acess_Token"` , 
 
     - How to set up environment variables :
@@ -48,7 +52,7 @@ print("Environment Variable set properly : ",acess_token is not None)
     
 - To create a **private** repo via HTTP:
     - `python automate.py repo_name --private`
-- To add remote origin via **SSH** (default : HTTP) 
+- To add remote origin via **SSH** (default : HTTP) (Setup [**SSH keys.**](https://help.github.com/en/enterprise/2.15/user/articles/adding-a-new-ssh-key-to-your-github-account) )
     - `python automate.py repo_name --ssh`
 - To create a **private** repo and add remote origin via **SSH** 
     - `python automate.py repo_name --ssh --private`
