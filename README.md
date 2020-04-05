@@ -13,7 +13,7 @@
 
 ### Contents 
 - `automate.py` (Python Script)
-- `dist/automate` (Execeutable)
+- `dist/automate` (Executable)
 
 ### Requirements :
 
