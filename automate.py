@@ -72,6 +72,9 @@ def repoCreate(username , passwrd , repo,private ,oauth,acess_token):
         try:
 
             ##Authenticate User
+            if(acess_token == "" or acess_token  is None):
+                print("NO ACESS TOKEN FOUND")
+                return None,None,False
 
             g = Github(acess_token)
             user = g.get_user()
@@ -220,7 +223,7 @@ def main():
     personal_acess_token = os.environ.get("GIT_ACESS_TOKEN",None)
 
     if(not oauth):
-        if(personal_acess_token is None):
+        if(personal_acess_token is None or personal_acess_token == ""):
             print("!!!! NO PERSONAL ACESS TOKEN FOUND !!!!!")
             print()
             print(f"SET 'GIT_ACESS_TOKEN' as environment variable")
