@@ -87,7 +87,7 @@ Now you can execute without having python installed :
 
 To Know more : `automate -h`or `automate --help`
 
-( Tip : Set the path to dist/automate in your environment variable and run the executable from anywhere)
+( Tip : Set the path of dist/automate in your environment variable and run the executable from anywhere)
 
 
 
