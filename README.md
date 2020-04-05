@@ -6,10 +6,11 @@
 - Create New Github Repository
 - Create Local Directory in specified Location
 - Initialise git in local repo
-- Add README.md file
+- Add README.md file / Initialise custom README.md
 - Do the initial commit
 - Add remote origin 
 - Push the Inital commit to the Github repo
+- Initialise new branch and push the same
 
 ### Contents 
 - `automate.py` (Python Script)
@@ -56,6 +57,10 @@ print("Environment Variable set properly : ",acess_token is not None)
     - `python automate.py repo_name --ssh`
 - To create a **private** repo and add remote origin via **SSH** 
     - `python automate.py repo_name --ssh --private`
+- To initialise project with Branch :
+    - `python automate.py repo_name --branch branch_name` (Creates new branch)
+- To Initialise with custom README.md
+    - `python automate.py repo_name --readme` (Later takes user input)
 - To create local folder at specified location
     - `python automate.py repo_name --dir "complete/path/to/folder"`
 - To authenticate via basic username and password instead of __*PERSONAL_ACESS_TOKEN*__ :
