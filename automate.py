@@ -225,6 +225,8 @@ def main():
             print()
             print(f"SET 'GIT_ACESS_TOKEN' as environment variable")
             print(f"GIT_ACESS_TOKEN='PERSONAL_ACESS_TOKEN")
+
+            return
     else :
         print()
         print("Basic username - password based auth may get deprecate anytime.It's not reliable")
