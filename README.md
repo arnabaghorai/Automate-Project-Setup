@@ -18,7 +18,7 @@
 
 ### Requirements :
 
-- Create **Github Personal Acess Token** from [here](https://github.com/settings/tokens).
+- Create **Github Personal Access Token** from [here](https://github.com/settings/tokens).
 
     Read [this](https://help.github.com/en/github/authenticating-to-github/creating-a-personal-access-token-for-the-command-line) for reference.
 
@@ -37,7 +37,7 @@ import os
 #Returns Github's Personl Acess Token
 acess_token = os.environ.get("GIT_ACESS_TOKEN",None) 
 
-print("Environment Variable set properly : ",acess_token is not None)
+print("Environment Variable set properly : ",acess_token is not None or acess_token !="")
 ### >>> Environment Variable set properly : True    # Should be True
 ```
 
